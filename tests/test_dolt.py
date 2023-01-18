@@ -560,9 +560,7 @@ def test_sql_json(create_test_table: Tuple[Dolt, str]):
 
 def test_sql_csv(create_test_table: Tuple[Dolt, str]):
     repo, test_table = create_test_table
-    result = repo.sql(
-        query="SELECT * FROM `{table}`".format(table=test_table), result_format="csv"
-    )
+    result = repo.sql(query="SELECT * FROM `{table}`".format(table=test_table), result_format="csv")
     _verify_against_base_rows(result)
 
 
@@ -605,8 +603,7 @@ def test_config_global(init_empty_test_repo: Dolt):
     Dolt.config_global(add=True, name="user.email", value=test_email)
     updated_config = Dolt.config_global(list=True)
     assert (
-        updated_config["user.name"] == test_username
-        and updated_config["user.email"] == test_email
+        updated_config["user.name"] == test_username and updated_config["user.email"] == test_email
     )
     Dolt.config_global(add=True, name="user.name", value=current_global_config["user.name"])
     Dolt.config_global(add=True, name="user.email", value=current_global_config["user.email"])
@@ -623,9 +620,7 @@ def test_config_local(init_empty_test_repo: Dolt):
     repo.config_local(add=True, name="user.email", value=test_email)
     local_config = repo.config_local(list=True)
     global_config = Dolt.config_global(list=True)
-    assert (
-        local_config["user.name"] == test_username and local_config["user.email"] == test_email
-    )
+    assert local_config["user.name"] == test_username and local_config["user.email"] == test_email
     assert global_config["user.name"] == current_global_config["user.name"]
     assert global_config["user.email"] == current_global_config["user.email"]
 
@@ -686,9 +681,7 @@ def test_dolt_sql_csv(init_empty_test_repo: Dolt):
 def test_dolt_sql_json(init_empty_test_repo: Dolt):
     dolt = init_empty_test_repo
     write_rows(dolt, "test_table", BASE_TEST_ROWS, commit=True)
-    result = dolt.sql(
-        "SELECT `name` as name, `id` as id FROM test_table ", result_format="json"
-    )
+    result = dolt.sql("SELECT `name` as name, `id` as id FROM test_table ", result_format="json")
     # JSON return value preserves some type information, we cast back to a string
     for row in result["rows"]:
         row["id"] = str(row["id"])
@@ -700,9 +693,7 @@ def test_dolt_sql_file(init_empty_test_repo: Dolt):
 
     with tempfile.NamedTemporaryFile() as f:
         write_rows(dolt, "test_table", BASE_TEST_ROWS, commit=True)
-        result = dolt.sql(
-            "SELECT `name` as name, `id` as id FROM test_table ", result_file=f.name
-        )
+        result = dolt.sql("SELECT `name` as name, `id` as id FROM test_table ", result_file=f.name)
         res = read_csv_to_dict(f.name)
         compare_rows_helper(BASE_TEST_ROWS, res)
 
