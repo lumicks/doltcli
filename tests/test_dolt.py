@@ -174,10 +174,7 @@ def test_merge_fast_forward(create_test_table: Tuple[Dolt, str]):
     assert parent.message == message_one
 
 
-<<<<<<< HEAD
 @pytest.mark.xfail(reason="Unresolved conflicts requires change test")
-=======
->>>>>>> 0421186 (Add typing for `create_test_table` fixture)
 def test_merge_conflict(create_test_table: Tuple[Dolt, str]):
     repo, test_table = create_test_table
     message_one = "Base branch"
