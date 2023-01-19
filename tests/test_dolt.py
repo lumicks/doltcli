@@ -174,7 +174,10 @@ def test_merge_fast_forward(create_test_table: Tuple[Dolt, str]):
     assert parent.message == message_one
 
 
+<<<<<<< HEAD
 @pytest.mark.xfail(reason="Unresolved conflicts requires change test")
+=======
+>>>>>>> 0421186 (Add typing for `create_test_table` fixture)
 def test_merge_conflict(create_test_table: Tuple[Dolt, str]):
     repo, test_table = create_test_table
     message_one = "Base branch"
@@ -267,7 +270,7 @@ def test_dolt_single_commit_log(create_test_table: Tuple[Dolt, str]):
 
 def test_dolt_log_commit(create_test_table: Tuple[Dolt, str]):
     repo, test_table = create_test_table
-    _ = "Julianna, the very serious intellectual"
+    message_one = "Julianna, the very serious intellectual"
     message_two = "Added Stan the Man"
     repo.add(test_table)
     repo.commit(message_one)
