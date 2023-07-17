@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
     paths:
-      - ".github/workflows/code_quality.yml"
+      - ".github/workflows/unit_tests.yml"
       - "doltcli/**"
       - "scripts/**"
       - "tests/**"
