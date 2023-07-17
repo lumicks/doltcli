@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, synchronize, reopened, ready_for_review]
     paths:
-      - ".github/workflows/code_quality.yml"
+      - ".github/workflows/unit_tests.yml"
       - "doltcli/**"
       - "scripts/**"
       - "tests/**"
@@ -18,7 +18,7 @@ jobs:
       matrix:
         python-version: ['3.8', '3.9', '3.10']
         os: [ubuntu-latest, windows-latest]
-        dolt-version: ['0.52.8']
+        dolt-version: ['1.7.5']
     runs-on: ${{ matrix.os }}
 
     steps:
