@@ -3,6 +3,7 @@ name = "lumicks-doltcli"
 version = "0.2.0"
 packages = [{ include = "doltcli" }]
 description = "Slim Python interface for Dolt's CLI API."
+readme = "README.md"
 authors = ["Max Hoffman <max@dolthub.com>", "Oscar Batori <oscar@dolthub.com>", "LUMICKS AI Team <ai-team-list@lumicks.com"]
 classifiers = [
   "Programming Language :: Python"
