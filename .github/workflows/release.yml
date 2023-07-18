@@ -1,9 +1,8 @@
 name: release
 
 on:
-  push:
-    tags:
-      - v*
+  release:
+    types: [published]
 
 jobs:
   release-package:
@@ -22,9 +21,9 @@ jobs:
           python -m pip install -r requirements/build.txt
       - name: Create Python package
         run: python -m build
-      - name: Upload Python package
-        env:
-            TWINE_USERNAME: ${{ secrets.NEXUS_USER }}
-            TWINE_PASSWORD: ${{ secrets.NEXUS_PASSWORD }}
-            TWINE_REPOSITORY_URL: "https://nexus.dev.lumicks.com/repository/pypi-internal/"
-        run: python -m twine upload dist/* --verbose
+      - name: Publish package to PyPi
+        uses: pypa/gh-action-pypi-publish@27b31702a0e7fc50959f5ad993c78deac1bdfc29
+        with:
+          user: __token__
+          password: ${{ secrets.PYPI_API_TOKEN }}
+  
