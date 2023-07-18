@@ -3,6 +3,7 @@ name = "lumicks-doltcli"
 version = "0.2.0"
 license = {file = "LICENSE"}
 description = "Slim Python interface for Dolt's CLI API."
+long_description_content_type = "text/markdown"
 authors = [
   {name = "Max Hoffman", email = "max@dolthub.com"},
   {name = "Oscar Batori", email = "oscar@dolthub.com"},
