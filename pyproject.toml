@@ -1,19 +1,20 @@
-[project]
+[tool.poetry]
 name = "lumicks-doltcli"
 version = "0.2.0"
-license = {file = "LICENSE"}
+packages = [{ include = "doltcli" }]
 description = "Slim Python interface for Dolt's CLI API."
-long_description_content_type = "text/markdown"
-authors = [
-  {name = "Max Hoffman", email = "max@dolthub.com"},
-  {name = "Oscar Batori", email = "oscar@dolthub.com"},
-  {name = "LUMICKS ml-team", email = "ml-team@lumicks.com"}
-]
-requires-python = ">=3.8"
+readme = "README.md"
+authors = ["Max Hoffman <max@dolthub.com>", "Oscar Batori <oscar@dolthub.com>", "LUMICKS AI Team <ai-team-list@lumicks.com"]
 classifiers = [
   "Programming Language :: Python"
 ]
 
+[tool.poetry.dependencies]
+python = ">=3.8"
+
+[build-system]
+requires = ["poetry-core>=1.0.0a5"]
+build-backend = "poetry.core.masonry.api"
 
 [tool.isort]
 profile = "black"
@@ -43,5 +44,4 @@ per-file-ignores = ['**/__init__.py:F401']
 [tool.mypy]
 python_version = "3.8"
 warn_unused_configs = true
-
 ignore_missing_imports = true
