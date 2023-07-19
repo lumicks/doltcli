@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "lumicks-doltcli"
-version = "0.2.0"
+version = "0.2.1"
 packages = [{ include = "doltcli" }]
 description = "Slim Python interface for Dolt's CLI API."
 readme = "README.md"
