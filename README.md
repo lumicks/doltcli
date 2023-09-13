@@ -2,9 +2,9 @@
 
 This is a minimalist package intended for data engineering applications:
 
-- unzipped size ~100kb
-- one dependency -- Dolt bunary
-- only changes when Dolt changes
+- Unzipped size ~100kb
+- One dependency -- Dolt binary
+- Only changes when Dolt changes
 
 If you are a data scientist or are using Pandas there are three options:
 - Use [doltpy](https://github.com/dolthub/doltpy)
@@ -24,12 +24,12 @@ questions regarding production use-cases.
 
 - clone repo
 - Python 3.6+ required
-- [Install Dolt binary](https://docs.dolthub.com/getting-started/installation)
+- [Install Dolt binary](https://docs.dolthub.com/introduction/installation)
 - [Install Poetry](https://python-poetry.org/docs/#installation)
 ```bash
 curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
 ```
- -Install dependencies:
+ - Install dependencies:
 ```bash
 poetry install
 ```
