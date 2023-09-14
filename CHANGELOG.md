@@ -17,6 +17,10 @@ This document follows the conventions laid out in [Keep a CHANGELOG](https://kee
 ### Added
 - Add CODEOWNERS file. [#24](https://github.com/lumicks/doltcli/pull/24)
 
+### Changed
+- Update tests to work with dolt 1.15.0. [#22](https://github.com/lumicks/doltcli/pull/22)
+- Bump dolt version to 1.15.0. [#22](https://github.com/lumicks/doltcli/pull/22)
+
 ## [v0.2.0](https://github.com/lumicks/doltcli/releases/tag/v0.1.18) - 2023-09-13
 
 ### Added
