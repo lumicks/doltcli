@@ -14,6 +14,9 @@ This document follows the conventions laid out in [Keep a CHANGELOG](https://kee
 
 ## [Unreleased](https://github.com/lumicks/doltcli/compare/v0.2.0...HEAD)
 
+### Added
+- Add CODEOWNERS file. [#24](https://github.com/lumicks/doltcli/pull/24)
+
 ## [v0.2.0](https://github.com/lumicks/doltcli/releases/tag/v0.1.18) - 2023-09-13
 
 ### Added
