@@ -254,7 +254,7 @@ def test_dolt_log_scope(create_test_table: Tuple[Dolt, str]):
 @pytest.mark.xfail(condition=sys.platform == "win32", reason="Unknown error on windows")
 def test_dolt_log_number(create_test_table: Tuple[Dolt, str]):
     repo, test_table = create_test_table
-    _ = "Julianna, the very serious intellectual"
+    message_one = "Julianna, the very serious intellectual"
     message_two = "Added Stan the Man"
     repo.add(test_table)
     repo.commit(message_one)
