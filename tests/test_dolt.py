@@ -178,7 +178,7 @@ def test_dolt_log(create_test_table: Tuple[Dolt, str]):
     message_one = "Julianna, the very serious intellectual"
     message_two = "Added Stan the Man"
     repo.add(test_table)
-    repo.commit("Julianna, the very serious intellectual")
+    repo.commit(message_one)
     repo.sql('INSERT INTO `test_players` (`name`, `id`) VALUES ("Stan", 4)')
     repo.add(test_table)
     repo.commit(message_two)
@@ -195,7 +195,7 @@ def test_dolt_log_scope(create_test_table: Tuple[Dolt, str]):
     message_one = "Julianna, the very serious intellectual"
     message_two = "Added Stan the Man"
     repo.add(test_table)
-    repo.commit("Julianna, the very serious intellectual")
+    repo.commit(message_one)
     repo.checkout("tmp_br", checkout_branch=True)
     repo.sql('INSERT INTO `test_players` (`name`, `id`) VALUES ("Stan", 4)')
     repo.add(test_table)
@@ -210,10 +210,10 @@ def test_dolt_log_scope(create_test_table: Tuple[Dolt, str]):
 @pytest.mark.xfail(condition=sys.platform == "win32", reason="Unknown error on windows")
 def test_dolt_log_number(create_test_table: Tuple[Dolt, str]):
     repo, test_table = create_test_table
-    _ = "Julianna, the very serious intellectual"
+    message_one = "Julianna, the very serious intellectual"
     message_two = "Added Stan the Man"
     repo.add(test_table)
-    repo.commit("Julianna, the very serious intellectual")
+    repo.commit(message_one)
     repo.sql('INSERT INTO `test_players` (`name`, `id`) VALUES ("Stan", 4)')
     repo.add(test_table)
     repo.commit(message_two)
@@ -234,10 +234,10 @@ def test_dolt_single_commit_log(create_test_table: Tuple[Dolt, str]):
 @pytest.mark.xfail(condition=sys.platform == "win32", reason="Unknown error on windows")
 def test_dolt_log_commit(create_test_table: Tuple[Dolt, str]):
     repo, test_table = create_test_table
-    _ = "Julianna, the very serious intellectual"
+    message_one = "Julianna, the very serious intellectual"
     message_two = "Added Stan the Man"
     repo.add(test_table)
-    repo.commit("Julianna, the very serious intellectual")
+    repo.commit(message_one)
     repo.sql('INSERT INTO `test_players` (`name`, `id`) VALUES ("Stan", 4)')
     repo.add(test_table)
     repo.commit(message_two)
