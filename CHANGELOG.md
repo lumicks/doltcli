@@ -16,7 +16,7 @@ This document follows the conventions laid out in [Keep a CHANGELOG](https://kee
 
 ### Added
 - Add CODEOWNERS file. [#24](https://github.com/lumicks/doltcli/pull/24)
-- Add remote and all options to branch command. [#20](https://github.com/lumicks/doltcli/pull/20)
+- Add 'remote' and 'all' options to branch command. [#20](https://github.com/lumicks/doltcli/pull/20)
 
 ### Changed
 - Update tests to work with dolt 1.15.0. [#22](https://github.com/lumicks/doltcli/pull/22)
