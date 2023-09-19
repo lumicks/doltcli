@@ -466,9 +466,11 @@ class Dolt(DoltT):
         """
         Executes a merge operation. If conflicts result, the merge is aborted, as an interactive merge does not really
         make sense in a scripting environment, or at least we have not figured out how to model it in a way that does.
-        :param branch:
-        :param message:
-        :param squash:
+        :param branch: name of the branch to merge into the current branch
+        :param message: message to be used for the merge commit only in the case of an automatic
+            merge. In case of automatic merge without a message provided, the commit message will be
+            "Merge branch '<branch>' into '<current_branch>'"
+        :param squash: squash the commits from the merged branch into a single commit
         :return:
         """
         current_branch, branches = self._get_branches()
@@ -485,16 +487,19 @@ class Dolt(DoltT):
 
         if squash:
             args.append("--squash")
-
+        if message:
+            args.extend(["--message", message])
         args.append(branch)
         output = self.execute(args, **kwargs).split("\n")
-        merge_conflict_pos = 2
 
-        if len(output) == 3 and "Fast-forward" in output[1]:
+        # TODO: this was and remains a hack, we need to parse the output properly
+        if len(output) > 1 and "Fast-forward" in output[0]:
             logger.info(f"Completed fast-forward merge of {branch} into {current_branch.name}")
             return
 
-        if len(output) == 5 and output[merge_conflict_pos].startswith("CONFLICT"):
+        # TODO: this was and remains a hack, we need to parse the output properly
+        merge_conflict_pos = 8
+        if len(output) > 1 and output[merge_conflict_pos].startswith("CONFLICT"):
             logger.warning(
                 f"""
                 The following merge conflict occurred merging {branch} to {current_branch.name}:
@@ -509,12 +514,6 @@ class Dolt(DoltT):
         if message is None:
             message = f"Merged {current_branch.name} into {branch}"
         logger.info(message)
-        status = self.status()
-
-        for table in list(status.added_tables.keys()) + list(status.modified_tables.keys()):
-            self.add(table)
-
-        self.commit(message)
 
     def sql(
         self,
@@ -1219,7 +1218,6 @@ class Dolt(DoltT):
         get: bool = False,
         unset: bool = False,
     ) -> Dict[str, str]:
-
         switch_count = [el for el in [add, list, get, unset] if el]
         if len(switch_count) != 1:
             raise ValueError("Exactly one of add, list, get, unset must be True")
