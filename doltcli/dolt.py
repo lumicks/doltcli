@@ -719,22 +719,22 @@ class Dolt(DoltT):
         """
         List all branches and optionally checkout, create, delete, move, or copy, a branch.
 
-        If <branch_name> is None, existing branches are listed, including remotely tracked branches
-        if 'remote' or 'all' are set. If <branch_name> is provided, a new branch is created, checked
+        If 'branch_name' is None, existing branches are listed, including remotely tracked branches
+        if 'remote' or 'all' are set. If 'branch_name' is provided, a new branch is created, checked
         our, deleted, moved or copied.
 
         :param branch_name: Name of branch to Checkout, create, delete, move, or copy.
         :param start_point: A commit that a new branch should point at.
         :param new_branch: Name of branch to copy to or rename to if 'copy' or 'move' is set.
-        :param force: Reset <branch_name> to <start_point>, even if <branch_name> exists already.
+        :param force: Reset 'branch_name' to 'start_point', even if 'branch_name' exists already.
             Without 'force', dolt branch refuses to change an existing branch. In combination with
             'delete', allow deleting the branch irrespective of its merged status. In
             combination with 'move', allow renaming the branch even if the new branch name
             already exists, the same applies for 'copy'.
         :param delete: Delete a branch. The branch must be fully merged in its upstream branch.
         :param copy: Create a copy of a branch.
-        :param move: Move/rename a branch. If <new_branch> does not exist, <branch_name> will be
-            renamed to <new_branch>. If <new_branch> exists, 'force' must be used to force the
+        :param move: Move/rename a branch. If 'new_branch' does not exist, 'branch_name' will be
+            renamed to 'new_branch'. If 'new_branch' exists, 'force' must be used to force the
             rename to happen.
         :param remote: When in list mode, show only remote tracked branches, unless 'all' is true.
             When with -d, delete a remote tracking branch.
