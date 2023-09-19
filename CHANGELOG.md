@@ -15,14 +15,15 @@ This document follows the conventions laid out in [Keep a CHANGELOG](https://kee
 ## [Unreleased](https://github.com/lumicks/doltcli/compare/v0.2.0...HEAD)
 
 ### Added
-- Add CODEOWNERS file. [#24](https://github.com/lumicks/doltcli/pull/24)
-- Add 'remote' and 'all' options to branch command. [#20](https://github.com/lumicks/doltcli/pull/20)
+- Add 'remote' and 'all' options to branch command [#20](https://github.com/lumicks/doltcli/pull/20).
+- Add CODEOWNERS file [#24](https://github.com/lumicks/doltcli/pull/24).
 
 ### Changed
-- Update tests to work with dolt 1.15.0. [#22](https://github.com/lumicks/doltcli/pull/22)
-- Bump dolt version to 1.15.0. [#22](https://github.com/lumicks/doltcli/pull/22)
+- Bump dolt version to 1.16.0 [#26](https://github.com/lumicks/doltcli/pull/26).
+- Update tests to work with dolt 1.15.0 [#22](https://github.com/lumicks/doltcli/pull/22).
+- Bump dolt version to 1.15.0 [#22](https://github.com/lumicks/doltcli/pull/22).
 
-## [v0.2.0](https://github.com/lumicks/doltcli/releases/tag/v0.1.18) - 2023-09-13
+## [v0.2.0](https://github.com/lumicks/doltcli/releases/tag/v0.2.0) - 2023-09-13
 
 ### Added
 - Add remote and branch to BranchT class to handle updated version of dolt
