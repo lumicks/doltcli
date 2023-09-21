@@ -12,7 +12,9 @@ This document follows the conventions laid out in [Keep a CHANGELOG](https://kee
 [//]: # "3. Remove the unused sections from the new release."
 [//]: # "4. Update the comparison link for the unreleased header to the new tag."
 
-## [Unreleased](https://github.com/lumicks/doltcli/compare/v0.2.0...HEAD)
+## [Unreleased](https://github.com/lumicks/doltcli/compare/v0.3.0...HEAD)
+
+## [v0.3.0](https://github.com/lumicks/doltcli/releases/tag/v0.3.0) - 2023-09-21
 
 ### Added
 - Add 'remote' and 'all' options to branch command [#20](https://github.com/lumicks/doltcli/pull/20).
