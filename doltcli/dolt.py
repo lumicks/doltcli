@@ -990,19 +990,23 @@ class Dolt(DoltT):
         remote: str = "origin",
         refspecs: Union[str, List[str]] = None,
         force: bool = False,
+        prune: bool = False,
         **kwargs,
     ):
         """
         Fetch the specified branch or list of branches from the remote provided, defaults to origin.
-        :param remote: the reomte to fetch from
+        :param remote: the remote to fetch from
         :param refspecs: branch or branches to fetch
         :param force: whether to override local history with remote
+        :param prune: deletes any local remote refs that are not present on the remote being fetched
         :return:
         """
         args = ["fetch"]
 
         if force:
             args.append("--force")
+        if prune:
+            args.append("--prune")
         if remote:
             args.append(remote)
         if refspecs:
