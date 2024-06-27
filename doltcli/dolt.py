@@ -376,24 +376,21 @@ class Dolt(DoltT):
 
         output = self.execute(["status"], print_output=False, **kwargs).split("\n")
 
-        if "clean" in str("\n".join(output)):
-            return Status(True, changes, new_tables)
-        else:
-            staged = False
-            for line in output:
-                _line = line.lstrip()
-                if _line.startswith("Changes to be committed"):
-                    staged = True
-                elif _line.startswith("Changes not staged for commit"):
-                    staged = False
-                elif _line.startswith("Untracked files"):
-                    staged = False
-                elif _line.startswith("modified"):
-                    changes[_line.split(":")[1].lstrip()] = staged
-                elif _line.startswith("new table"):
-                    new_tables[_line.split(":")[1].lstrip()] = staged
-                else:
-                    pass
+        staged = False
+        for line in output:
+            _line = line.lstrip()
+            if _line.startswith("Changes to be committed"):
+                staged = True
+            elif _line.startswith("Changes not staged for commit"):
+                staged = False
+            elif _line.startswith("Untracked files"):
+                staged = False
+            elif _line.startswith("modified"):
+                changes[_line.split(":")[1].lstrip()] = staged
+            elif _line.startswith("new table"):
+                new_tables[_line.split(":")[1].lstrip()] = staged
+            else:
+                return Status(True, changes, new_tables)
 
         return Status(False, changes, new_tables)
 
